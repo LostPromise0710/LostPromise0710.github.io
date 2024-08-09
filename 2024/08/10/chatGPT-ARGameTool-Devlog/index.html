@@ -16,24 +16,24 @@
   <meta name="author" content="Romational">
   <meta name="keywords" content="">
   
-    <meta name="description" content="遭遇过一次失败却不懂得重新开始，人生这么长会撑不住的哦。">
+    <meta name="description" content="开发日志：AR游戏地图编辑工具的诞生  引言在开发我们最新的AR游戏时，我们意识到玩家在游戏中创建和自定义自己的地图将大大增强他们的游戏体验。为此，我们决定开发一个专用的地图编辑工具，让玩家能够在真实世界的环境中构建和分享他们自己的AR游戏关卡。  初期设想最初的灵感来自于经典的《我的世界》（Minecraft），我希望玩家可以像在那里那样，随心所欲地创建自己的游戏世界，但在这里，是通过手机的摄像">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MinecraftDevlog">
-<meta property="og:url" content="http://example.com/2024/07/26/MinecraftDevlog/index.html">
+<meta property="og:title" content="chatGPT-ARGameTool-Devlog">
+<meta property="og:url" content="http://example.com/2024/08/10/chatGPT-ARGameTool-Devlog/index.html">
 <meta property="og:site_name" content="Romational">
-<meta property="og:description" content="遭遇过一次失败却不懂得重新开始，人生这么长会撑不住的哦。">
+<meta property="og:description" content="开发日志：AR游戏地图编辑工具的诞生  引言在开发我们最新的AR游戏时，我们意识到玩家在游戏中创建和自定义自己的地图将大大增强他们的游戏体验。为此，我们决定开发一个专用的地图编辑工具，让玩家能够在真实世界的环境中构建和分享他们自己的AR游戏关卡。  初期设想最初的灵感来自于经典的《我的世界》（Minecraft），我希望玩家可以像在那里那样，随心所欲地创建自己的游戏世界，但在这里，是通过手机的摄像">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-26T00:25:41.000Z">
-<meta property="article:modified_time" content="2024-07-31T13:55:40.000Z">
+<meta property="article:published_time" content="2024-08-09T19:46:26.000Z">
+<meta property="article:modified_time" content="2024-08-09T19:48:30.000Z">
 <meta property="article:author" content="Romational">
-<meta property="article:tag" content="MinecraftDevlog">
+<meta property="article:tag" content="chatGPT">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>MinecraftDevlog - Romational</title>
+  <title>chatGPT-ARGameTool-Devlog - Romational</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +228,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="MinecraftDevlog"></span>
+            <span id="subtitle" data-typed-text="chatGPT-ARGameTool-Devlog"></span>
           
         </div>
 
@@ -239,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-26 08:25" pubdate>
-          2024年7月26日 早上
+        <time datetime="2024-08-10 03:46" pubdate>
+          2024年8月10日 凌晨
         </time>
       </span>
     
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1.1k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          1 分钟
+          10 分钟
         
       </span>
     
@@ -307,12 +307,38 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">MinecraftDevlog</h1>
+            <h1 id="seo-header">chatGPT-ARGameTool-Devlog</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <p>开发日志：AR游戏地图编辑工具的诞生</p>
+<ol>
+<li><p>引言<br>在开发我们最新的AR游戏时，我们意识到玩家在游戏中创建和自定义自己的地图将大大增强他们的游戏体验。为此，我们决定开发一个专用的地图编辑工具，让玩家能够在真实世界的环境中构建和分享他们自己的AR游戏关卡。</p>
+</li>
+<li><p>初期设想<br>最初的灵感来自于经典的《我的世界》（Minecraft），我希望玩家可以像在那里那样，随心所欲地创建自己的游戏世界，但在这里，是通过手机的摄像头和AR技术实现的。目标是让工具直观易用，同时提供足够的灵活性，支持从简单的结构到复杂的建筑设计。</p>
+</li>
+<li><p>技术选择<br>为了确保地图编辑工具的性能和跨平台支持，我选择了使用Unity引擎，并搭配AR Foundation框架。这一选择得益于Unity在3D内容创建上的强大能力和AR Foundation对iOS和Android的支持。此外，为了简化UI设计，我还采用了Unity的UI Toolkit。</p>
+</li>
+<li><p>开发过程<br>关键挑战<br>在开发初期，我们遇到了一个重大挑战——如何确保玩家创建的3D对象能够准确地锚定在现实世界的物理位置上。经过多次尝试和调整，我们最终通过改进光学追踪算法，成功提升了AR锚点的稳定性。</p>
+</li>
+</ol>
+<p>重要里程碑<br>第一阶段：成功实现了3D对象的创建和基础编辑功能。玩家可以通过简单的手势来放置、移动和缩放3D模型。<br>第二阶段：添加了环境识别功能，工具能够自动识别并适应周围的物理环境，避免出现穿模或浮空的情况。<br>第三阶段：实现了地图分享功能，玩家可以将他们的创作上传到云端，与其他玩家共享和下载。<br>迭代改进<br>工具的初版在内部测试中暴露了一些问题，特别是UI不够直观。经过几轮用户反馈，我们重新设计了UI布局，使工具更易于使用，同时添加了教程模式，帮助新手玩家快速上手。</p>
+<ol start="5">
+<li>学到的经验<br>成功之处<br>我们的AR地图编辑工具在性能和用户体验上都达到了预期效果。特别是环境识别和锚定技术，使得玩家创建的地图在现实世界中具有极高的沉浸感。</li>
+</ol>
+<p>改进空间<br>回顾整个开发过程，我认为可以在早期阶段进行更多的用户研究，以避免后期对UI进行大规模的调整。此外，我们可以进一步优化云端同步功能，以提升地图加载的速度和稳定性。</p>
+<p>开发心得<br>开发这个工具让我深入了解了AR技术在游戏中的应用潜力，也让我意识到用户体验的重要性。即便技术再先进，如果不能方便地为用户所用，也难以成功。</p>
+<ol start="6">
+<li><p>下一步计划<br>未来，我们计划进一步优化工具的性能，减少对设备硬件的依赖。同时，我们正在探索将AI技术引入编辑工具中，让玩家可以通过简单的语音指令来创建和编辑地图。此外，我们也在考虑推出一套高级编辑功能，供有经验的玩家使用。</p>
+</li>
+<li><p>结语<br>AR地图编辑工具的开发是一个充满挑战但也非常令人兴奋的过程。这个工具不仅丰富了我们的游戏，也为玩家提供了更多创作的可能性。感谢整个团队的努力，以及早期测试玩家们的宝贵反馈。</p>
+</li>
+<li><p>附件<br>代码示例<br>csharp<br>复制代码<br>&#x2F;&#x2F; 示例代码：对象创建与放置功能<br>void PlaceObject(Vector3 position)<br>{<br> GameObject newObject &#x3D; Instantiate(prefab, position, Quaternion.identity);<br> ARAnchor anchor &#x3D; newObject.AddComponent<ARAnchor>();<br> &#x2F;&#x2F; 其他相关设置<br>}<br>图片或视频演示</p>
+</li>
+</ol>
+<p>这个示例基于假设的情况，你可以根据实际情况调整内容。如果有具体的开发过程或想要展示的功能，我可以帮助你进一步完善。</p>
+
                 
               </div>
             
@@ -320,32 +346,11 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Devlog/" class="category-chain-item">Devlog</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/MinecraftDevlog/" class="print-no-link">#MinecraftDevlog</a>
+        <a href="/tags/chatGPT/" class="print-no-link">#chatGPT</a>
       
     </div>
   
@@ -357,8 +362,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>MinecraftDevlog</div>
-      <div>http://example.com/2024/07/26/MinecraftDevlog/</div>
+      <div>chatGPT-ARGameTool-Devlog</div>
+      <div>http://example.com/2024/08/10/chatGPT-ARGameTool-Devlog/</div>
     </div>
     <div class="license-meta">
       
@@ -370,7 +375,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月26日</div>
+          <div>2024年8月10日</div>
         </div>
       
       
@@ -402,9 +407,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/08/03/TIS/" title="TIS">
+                      <a href="/2024/08/10/chatGPT-Minecraft-Devlog/" title="chatGPT-Minecraft-Devlog">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">TIS</span>
+                        <span class="hidden-mobile">chatGPT-Minecraft-Devlog</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -412,8 +417,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/23/testPaper/" title="testPaper">
-                        <span class="hidden-mobile">testPaper</span>
+                      <a href="/2024/08/03/TIS/" title="TIS">
+                        <span class="hidden-mobile">TIS</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
