@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>test</title>
+    <link href="/2024/10/22/test/"/>
+    <url>/2024/10/22/test/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Mathematics_and_Physics_for_Programmers</title>
     <link href="/2024/10/22/Mathematics-and-Physics-for-Programmers/"/>
     <url>/2024/10/22/Mathematics-and-Physics-for-Programmers/</url>
@@ -11,6 +24,12 @@
     <content type="html"><![CDATA[]]></content>
     
     
+    
+    <tags>
+      
+      <tag>Mathematics_and_Physics_for_Programmers</tag>
+      
+    </tags>
     
   </entry>
   
