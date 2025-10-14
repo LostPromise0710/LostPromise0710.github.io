@@ -19,17 +19,21 @@
   <meta name="author" content="Zhiang Dong">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Zombie Master — System Design Case Study Zombie Master is a top-down isometric, turn-based strategy RPG where you play as a necromantic “Zombie Master” who infects humans and commands a growing horde">
+    <meta name="description" content="Zombie Master — System Design Case Study  Zombie Master is a top-down isometric, turn-based strategy RPG where you play as a necromantic “Zombie Master” who infects humans and commands a growing horde">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zombie Master — System Design Case Study">
 <meta property="og:url" content="http://example.com/2025/10/12/ZombieMaster/index.html">
 <meta property="og:site_name" content="Romational">
-<meta property="og:description" content="Zombie Master — System Design Case Study Zombie Master is a top-down isometric, turn-based strategy RPG where you play as a necromantic “Zombie Master” who infects humans and commands a growing horde">
+<meta property="og:description" content="Zombie Master — System Design Case Study  Zombie Master is a top-down isometric, turn-based strategy RPG where you play as a necromantic “Zombie Master” who infects humans and commands a growing horde">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/img/img/Zombie%20MasterCover%20Page.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/img/img/Zombie%20Master%20Gameplay%20Loop.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/img/img/Zombie%20Master%20MapLap.png">
 <meta property="article:published_time" content="2025-10-12T04:00:00.000Z">
-<meta property="article:modified_time" content="2025-10-13T02:34:04.000Z">
+<meta property="article:modified_time" content="2025-10-13T04:00:14.000Z">
 <meta property="article:author" content="Zhiang Dong">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/img/img/Zombie%20MasterCover%20Page.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -282,6 +286,7 @@
               <div class="markdown-body">
                 
                 <p>Zombie Master — System Design Case Study</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/img/img/Zombie%20MasterCover%20Page.png" srcset="/img/loading.gif" lazyload></p>
 <p>Zombie Master is a top-down isometric, turn-based strategy RPG where you play as a necromantic “Zombie Master” who infects humans and commands a growing horde to overwhelm guards and the military.</p>
 <p>High Concept<br>After a lab accident, Dr. Necrosis awakens as a Zombie Master who can turn humans into zombies and take over the city—one zombie at a time.</p>
 <p>Team<br>ZJC Studio: Zhiang Dong, Jason Mahar, Caedan Thompson.</p>
@@ -289,7 +294,7 @@
 <p>Role, Responsibilities, Tools</p>
 <p>Role: System Designer<br>Responsibilities: Core loop design (infection, growth, overwhelm), economy and timer tuning, AI awareness and line-of-sight systems, fog-of-war readability, unit merging rules, playtesting and balance.<br>Tools: Unreal Engine 5.5, Visual Studio, Krita, Blender, Audacity, GitHub, Jira, Discord.</p>
 <p>Core Loop and Player Experience</p>
-<p>Core Actions: Move, attack, explore, strategize, micro-control. Players scout in darkness, pick off targets, snowball through infection, and time pushes to overrun strongholds.<br>Timer and Stars: Each level is scored by time and performance, earning one to three stars. Exceeding the maximum turn or timer can lead to defeat.<br>Experience Goal: Deliver the thrill of turning humans into zombies against the risk of losing units, balanced with moments of power and tension.</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/img/img/Zombie%20Master%20Gameplay%20Loop.png" srcset="/img/loading.gif" lazyload><br>Core Actions: Move, attack, explore, strategize, micro-control. Players scout in darkness, pick off targets, snowball through infection, and time pushes to overrun strongholds.<br>Timer and Stars: Each level is scored by time and performance, earning one to three stars. Exceeding the maximum turn or timer can lead to defeat.<br>Experience Goal: Deliver the thrill of turning humans into zombies against the risk of losing units, balanced with moments of power and tension.</p>
 <p>Systems Overview</p>
 <p>Exploration System<br>Combines fog-of-war, line-of-sight, and minimap elements. Environmental objects such as walls and bushes create opportunities for stealth and ambush.</p>
 <p>Organization System<br>Players can select multiple units, assign number groups, and issue commands through a compact control panel. Three zombies of the same level can merge into one stronger unit.</p>
@@ -302,7 +307,7 @@
 <p>F10 for pause, Tab to switch groups, A to attack, S to stop, P to patrol.<br>J opens task list, M toggles map, Ctrl plus number creates unit groups, Space focuses selection.<br>Left-click selects, right-click moves or issues context-sensitive commands.</p>
 <p>Level Flow</p>
 <p>Level 1 – Getting Accustomed<br>Introduces civilians, guards, and core movement in a compact, guided layout.</p>
-<p>Level 2 – The Lab<br>Adds breakable walls, merging, and keycards, expanding stealth and tactical choices.</p>
+<p>Level 2 – The Lab<br>Adds breakable walls, merging, and keycards, expanding stealth and tactical choices.<br><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/img/img/Zombie%20Master%20MapLap.png" srcset="/img/loading.gif" lazyload></p>
 <p>Level 3 – The Escape<br>Introduces soldiers and higher-level merges, completing the tutorial arc with open-ended strategies.</p>
 <p>Research Summary</p>
 <p>This project applies the MDA framework to align mechanical clarity with emergent tension and player emotion. It also uses a playcentric, iterative approach to fine-tune infection pacing, visibility readability, and progression spikes across early levels.</p>
