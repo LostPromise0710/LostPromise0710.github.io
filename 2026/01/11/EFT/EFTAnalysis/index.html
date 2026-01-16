@@ -1,0 +1,877 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="海关地图设计拆解   1. 设计理念逃离塔科夫地图的关卡设计服务于逃离塔科夫独特的游戏模式。可以说，正是逃离塔科夫的游戏节奏影响了其地图的关卡设计。因此下面会对逃离塔科夫的游戏模式进行分析，以此倒推出其地图中关卡设计的原理。 1.1 地图尺寸逃离塔科夫中，一场战局(Raid)的时长通常在30-40分钟。 海关这张地图的倒计时为40分钟，一场战局约12人，玩家需要在战局倒计时结束前前往撤离点并撤离。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="海关地图设计拆解">
+<meta property="og:url" content="http://example.com/2026/01/11/EFT/EFTAnalysis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="海关地图设计拆解   1. 设计理念逃离塔科夫地图的关卡设计服务于逃离塔科夫独特的游戏模式。可以说，正是逃离塔科夫的游戏节奏影响了其地图的关卡设计。因此下面会对逃离塔科夫的游戏模式进行分析，以此倒推出其地图中关卡设计的原理。 1.1 地图尺寸逃离塔科夫中，一场战局(Raid)的时长通常在30-40分钟。 海关这张地图的倒计时为40分钟，一场战局约12人，玩家需要在战局倒计时结束前前往撤离点并撤离。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B33d2.webp">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B33d.webp">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B32d.webp">
+<meta property="og:image" content="https://wstatic-prod.pubg.com/web/live/main_43289d2/img/590dba7.webp">
+<meta property="og:image" content="https://tse1.mm.bing.net/th/id/OIP.BNi6Rk8y7aIlcJWFu-a_MwHaHa?w=474&h=474&c=7&p=0">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%AE%BF%E8%88%8D%E6%A5%BC%E8%BF%9C%E6%99%AF.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%8A%A8%E7%BA%BF.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%B8%89%E5%B1%82%E6%A5%BC%E7%AC%AC%E4%B8%80%E8%BA%AB%E4%BD%8D.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%BA%8C%E5%B1%82%E6%A5%BC%E7%AC%AC%E4%B8%80%E8%BA%AB%E4%BD%8D.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%BA%A4%E6%88%98%E5%8C%BA1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%B8%89%E5%B1%82%E6%A5%BC%E4%B8%80%E6%A5%BC%E5%8E%95%E6%89%80.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%A4%8D%E6%B4%BB%E7%82%B91%E5%8A%A8%E7%BA%BF3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%AE%BF%E8%88%8D%E6%A5%BC%E4%B8%AD%E9%97%B4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%A4%8D%E6%B4%BB%E7%82%B92%E5%8A%A8%E7%BA%BF3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%BA%8C%E5%B1%82%E5%AE%BF%E8%88%8D%E6%A5%BC%E4%B8%80%E6%A5%BC.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%86%85%E9%83%A8.webp">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%B8%89%E5%B1%82%E5%AE%BF%E8%88%8D%E6%A5%BC%E4%BA%8C%E6%A5%BC%E5%B9%B3%E9%9D%A2%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%B8%89%E5%B1%82%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%8C%97%E4%BE%A7%E9%93%81%E6%A2%AF.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%B8%89%E5%B1%82%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%8D%97%E4%BE%A7%E5%85%A5%E5%8F%A3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/L%E4%BD%8D.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%8A%A8%E7%BA%BF.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E8%BF%87%E6%A1%A5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B3%E5%9C%B0%E5%9B%BE%E5%88%92%E5%88%86.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B3%E5%9C%B0%E5%9B%BE%E5%AF%B9%E5%86%B2%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B33d.webp">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%BD%A9%E8%9B%8B%E7%82%B9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%BD%A9%E8%9B%8B%E7%82%B9%E5%8A%A8%E7%BA%BF.png">
+<meta property="article:published_time" content="2026-01-11T09:15:29.000Z">
+<meta property="article:modified_time" content="2026-01-16T06:39:42.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="EFT">
+<meta property="article:tag" content="Game Design">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B33d2.webp">
+  
+  
+  
+  <title>海关地图设计拆解 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Enthurious</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/Morfonica/HiromachiNanami2178.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="海关地图设计拆解"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-11 17:15" pubdate>
+          January 11, 2026 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.6k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          39 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">海关地图设计拆解</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="海关地图设计拆解"><a href="#海关地图设计拆解" class="headerlink" title="海关地图设计拆解"></a>海关地图设计拆解</h1><p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B33d2.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B33d.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B32d.webp" srcset="/img/loading.gif" lazyload></p>
+<h2 id="1-设计理念"><a href="#1-设计理念" class="headerlink" title="1. 设计理念"></a>1. 设计理念</h2><p>逃离塔科夫地图的关卡设计服务于逃离塔科夫独特的游戏模式。可以说，正是逃离塔科夫的游戏节奏影响了其地图的关卡设计。因此下面会对逃离塔科夫的游戏模式进行分析，以此倒推出其地图中关卡设计的原理。</p>
+<h2 id="1-1-地图尺寸"><a href="#1-1-地图尺寸" class="headerlink" title="1.1 地图尺寸"></a>1.1 地图尺寸</h2><p>逃离塔科夫中，一场战局(Raid)的时长通常在30-40分钟。</p>
+<p>海关这张地图的倒计时为40分钟，一场战局约12人，玩家需要在战局倒计时结束前前往撤离点并撤离。因此时长与其地图的规模大小是密切相关的。</p>
+<p>海关的规模长约1km，宽约0.45km，总占地大小约0.5km<sup>2</sup>左右。人均面积约为0.05km<sup>2</sup>&#x2F;人。</p>
+<p>对比PUBG的地图艾伦格(<strong>ERANGEL</strong>),其规模为8km x 8km，真实的陆地区域约为30km<sup>2</sup>,一场战局有100人，人均面积约为0.3km<sup>2</sup>&#x2F;人。</p>
+<p><img src="https://wstatic-prod.pubg.com/web/live/main_43289d2/img/590dba7.webp" srcset="/img/loading.gif" lazyload alt="艾伦格"></p>
+<p>再与经典FPS地图Dust2对比，Dust2规模约为80m x 80m, 总占地面积约为6000m<sup>2</sup>。人均面积仅为600m<sup>2</sup>&#x2F;人。</p>
+<p><img src="https://tse1.mm.bing.net/th/id/OIP.BNi6Rk8y7aIlcJWFu-a_MwHaHa?w=474&h=474&c=7&p=0" srcset="/img/loading.gif" lazyload alt="Dust2"></p>
+<p><strong>人均面积越大，地图中人的密度越小，战斗烈度越小，反之亦反。</strong></p>
+<p>根据上述人均面积的计算，我们可以得出海关地图的战斗烈度是要远远小于Dust2，稍大于PUBG开局阶段的。</p>
+<h3 id="海关与PUBG中第几个缩圈的战斗节奏类似？"><a href="#海关与PUBG中第几个缩圈的战斗节奏类似？" class="headerlink" title="*海关与PUBG中第几个缩圈的战斗节奏类似？"></a>*海关与PUBG中第几个缩圈的战斗节奏类似？</h3><p>逃离塔科夫与PUBG的游戏模式在某种程度上是非常类似的，并且PUBG的缩圈系统会使得随着战局的进行，人均面积会进一步缩小。下面我们来简单估计一下PUBG缩圈到第几个时，人均面积与海关差不多；</p>
+<table>
+<thead>
+<tr>
+<th>圈次</th>
+<th>白圈直径 (m)</th>
+<th>面积 (km²)</th>
+<th>等待时长 (Wait)</th>
+<th><strong>战斗时长 (Move)</strong></th>
+<th><strong>若人均面积 &#x3D; 0.05km<sup>2</sup> 需存活人数</strong></th>
+<th>统计出的平均剩余人数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>4,564.7</td>
+<td>16.365</td>
+<td>5:00</td>
+<td><strong>12:00</strong></td>
+<td>327</td>
+<td>~80</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2,967.1</td>
+<td>6.914</td>
+<td>3:20</td>
+<td><strong>5:40</strong></td>
+<td>138</td>
+<td>~60</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1,483.5</td>
+<td>1.728</td>
+<td>2:30</td>
+<td><strong>4:00</strong></td>
+<td><strong>35</strong></td>
+<td>~40</td>
+</tr>
+<tr>
+<td>4</td>
+<td>741.8</td>
+<td>0.432</td>
+<td>2:00</td>
+<td><strong>3:00</strong></td>
+<td>9</td>
+<td>~25</td>
+</tr>
+<tr>
+<td>5</td>
+<td>370.9</td>
+<td>0.108</td>
+<td>2:00</td>
+<td><strong>2:40</strong></td>
+<td>2</td>
+<td>~15</td>
+</tr>
+<tr>
+<td>6</td>
+<td>185.4</td>
+<td>0.027</td>
+<td>1:30</td>
+<td><strong>2:00</strong></td>
+<td>1</td>
+<td>~10</td>
+</tr>
+<tr>
+<td>7</td>
+<td>92.7</td>
+<td>0.0067</td>
+<td>1:30</td>
+<td><strong>2:00</strong></td>
+<td>0</td>
+<td>~6</td>
+</tr>
+<tr>
+<td>8</td>
+<td>46.4</td>
+<td>0.0017</td>
+<td>1:00</td>
+<td><strong>1:30</strong></td>
+<td>0</td>
+<td>~3–4</td>
+</tr>
+</tbody></table>
+<p>从表格可以看出，海关的战斗节奏与PUBG中第3次缩圈开始时（开局后约20分钟）的战斗节奏比较类似。此时在PUBG中各个队伍也已经有了不错的装备，对应逃离塔科夫开局时各个队伍的装备都是满编的。</p>
+<h2 id="1-2-战斗烈度"><a href="#1-2-战斗烈度" class="headerlink" title="1.2 战斗烈度"></a>1.2 战斗烈度</h2><p>一场战局的战斗烈度将会影响地图中的关卡设计。</p>
+<p>短TTK，考验玩家定位、预瞄、身位控制的FPS游戏往往会把地图的大体框架设计的清晰简单，如标准的田字。随后，设计师会在地图的具体掩体方面加入细节的设计，加入暗门、可破坏掩体、小道等设计。这些游戏的代表有CS2，Valorant等。</p>
+<p>长TTK，考验玩家跟枪、转点、身法的FPS游戏往往会在地图框架上下大工夫，因为交战时双方不仅需要考虑与对方角色的交互，还要考虑角色在地图中移动时和地图元素的交互。并且这类FPS游戏的角色往往会有特殊的技能与地图元素交互，如钩爪、玩家创造出的墙体等。这些地图在空间设计上往往会比较复杂，包含多层楼道和多条小路、岔道，以保证玩家的游戏体验。这些游戏的代表有守望先锋、APEX等。</p>
+<h3 id="1-2-1-逃离塔科夫的战斗烈度"><a href="#1-2-1-逃离塔科夫的战斗烈度" class="headerlink" title="1.2.1 逃离塔科夫的战斗烈度"></a>1.2.1 逃离塔科夫的战斗烈度</h3><p>逃离塔科夫的TTK较短，任何子弹在命中无防护头部区域即可致死。但是逃离塔科夫的甲弹对抗系统以及部位生命值系统使得在实际情况下的TTK会长一点。但是总体而言是属于偏短的那一类FPS游戏。同时逃离塔科夫的TTK与交战距离成正比，交战距离越小，TTK越短；而在远距离交战中，由于护甲机制及双方都有选择时刻退出战斗逃跑的权力，很难做到一梭子子弹秒掉一个远距离的敌人，此时战斗又会演变成长TTK的模式。</p>
+<p>因此，逃离塔科夫的地图设计理念可以用一句话来总结：</p>
+<p><strong>室内及高价值资源点的关卡用短TTK FPS游戏的地图设计理念，地图的整体框架也有长TTK FPS游戏的复杂度。</strong></p>
+<h3 id="1-2-2-塔科夫中长TTK-FPS游戏的设计体现"><a href="#1-2-2-塔科夫中长TTK-FPS游戏的设计体现" class="headerlink" title="1.2.2 塔科夫中长TTK FPS游戏的设计体现"></a>1.2.2 塔科夫中长TTK FPS游戏的设计体现</h3><p>我们海关地图中的三层宿舍楼为例,这是3d地图中宿舍楼周边区域的示意图：</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%AE%BF%E8%88%8D%E6%A5%BC%E8%BF%9C%E6%99%AF.png" srcset="/img/loading.gif" lazyload></p>
+<p>图中的绿色箭头代表了可能的两个PMC复活点，左边的复活点是三层楼的第一身位，右边的围墙边复活点是二层楼第一身位。以下为了方便描述称左侧的复活点为复活点1，右侧的复活点为复活点2。</p>
+<p>当PMC复活在这两个地方时，通常的思路就是前往宿舍楼占领高价值物资点。这里给出两边复活点如果想要进攻宿舍楼的三条可能动线：</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%8A%A8%E7%BA%BF.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%B8%89%E5%B1%82%E6%A5%BC%E7%AC%AC%E4%B8%80%E8%BA%AB%E4%BD%8D.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%BA%8C%E5%B1%82%E6%A5%BC%E7%AC%AC%E4%B8%80%E8%BA%AB%E4%BD%8D.png" srcset="/img/loading.gif" lazyload></p>
+<p>这三条动线大致形成了类似Dust2地图中的“田”字对称结构，双方以宿舍楼为主交战地，开局分别选择不同的动线占据有利地形。</p>
+<p>下面对各条动线进行设计分析：</p>
+<h4 id="动线1"><a href="#动线1" class="headerlink" title="动线1"></a>动线1</h4><p>可以看出这是一条紧贴着地图边缘的动线，PMC在沿着这条动线前进时不容易失去方向且更具安全感，并且在这条动线上布满了树木和灌木丛，对视野的遮蔽效果明显。而临近宿舍楼时，掩体忽然大量减少，宿舍楼下是一大片开阔区域，开阔区域直径约100m，而这个开阔区域正是两条动线1的交汇处，因此这里也成了进入宿舍楼前的交战区1。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%BA%A4%E6%88%98%E5%8C%BA1.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="动线2"><a href="#动线2" class="headerlink" title="动线2"></a>动线2</h4><p>这条动线是一条非常规动线，这两条动线都是通过各自宿舍楼1楼的厕所翻越窗户进入宿舍楼1楼，这条动线可以无视动线1和动线3中来自对面的枪位，快速进入宿舍楼内部。但是这条动线也有其弊处，当PMC进入昏暗的宿舍楼时，如果想要穿过狭小的门占住走廊的有利地形时，会遭到左右两侧的包夹。并且PMC处在室内，如果队友在其他动线上发生交火的话，很难第一时间支援。所以这条动线往往是一条包抄线路。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%B8%89%E5%B1%82%E6%A5%BC%E4%B8%80%E6%A5%BC%E5%8E%95%E6%89%80.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="动线3"><a href="#动线3" class="headerlink" title="动线3"></a>动线3</h4><p>动线3的设计与动线1大致类似，但是与动线1不同，玩家走这条动线的时候，始终会有来自地图南侧来自老烂尾楼的AI或玩家的威胁，因此玩家需要快速决策进楼或者拿到信息后与队友会和，这是一条极其危险的动线，我们看看两边复活点在走这条动线的时候的抉择：</p>
+<p>复活点1：</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%A4%8D%E6%B4%BB%E7%82%B91%E5%8A%A8%E7%BA%BF3.png" srcset="/img/loading.gif" lazyload></p>
+<p>如图，复活点1从动线3走到宿舍楼下时有两个快速选择，1是快速进入宿舍楼，2是架住来自对向动线的玩家，与此同时玩家还要时刻注意到来自3方向的枪线（狙击AI可是锁的很准的，即使打不死你，只要响枪就会暴露信息）。当然，玩家甚至还有第四条选择，就是绕过这个拐角走到两栋宿舍楼的中间，从正门走进宿舍楼,但这毫无疑问是非常蠢的决定，如图，PMC需要接住四个方向的每条枪线，这毫无疑问是把自己暴露在了危险之下。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%AE%BF%E8%88%8D%E6%A5%BC%E4%B8%AD%E9%97%B4.png" srcset="/img/loading.gif" lazyload></p>
+<p>那我们可以选择2来老老实实地架住对向的动线3方向的枪线嘛？实战表明这是一个高风险低收益的决定。为了弄清楚为什么我们先来看看复活点2的动线3的情况：</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%A4%8D%E6%B4%BB%E7%82%B92%E5%8A%A8%E7%BA%BF3.png" srcset="/img/loading.gif" lazyload></p>
+<p>如图，和复活点1的动线3一样，复活点2的动线3也需要承受住来自南侧方向的枪线，当玩家走到二层宿舍楼楼下时也面临着两个选择：1是架住对向枪线，2是选择开启二层宿舍楼1楼的房门进入宿舍楼（二楼的门是上锁不可交互的，无法用任何方式打开）。但是这里设计师埋下了一个陷阱，当你选择打开二层宿舍楼的门时，你会发现这是一条不与二层宿舍楼其他部分联通的死胡同，通往宿舍楼其它部分的路被一条铁丝网隔开。尽管这一小片区域内有很多高价值物资点，但很容易进去出不来。在实际交战中，一般是确定了将整片宿舍楼清空后才会进入这片地区搜刮。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%BA%8C%E5%B1%82%E5%AE%BF%E8%88%8D%E6%A5%BC%E4%B8%80%E6%A5%BC.png" srcset="/img/loading.gif" lazyload></p>
+<p>此时我们就会发现，实际上复活点2的动线3实际上是一条陷阱动线。这条动线，除了可以获得对向动线的信息，并不能为玩家接下来的行动提供有利帮助，从而在实战中，往往很少有玩家会选择从这条动线行动。也因此，复活点1的玩家也较少选择冒着南侧枪线的危险拿对向动线的信息，而多数选择从这一侧的门快速进入三层宿舍楼。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>综合三条动线，我们得出的结论：</p>
+<p>动线1路途的安全性和忽然暴露的开阔区域使得这是一条较为传统且大多数玩家采用的动线，大部分的室外枪战也往往在此处发生，符合战斗经验。<br>动线2为小队中的自由人提供了包抄的机会，是一条机动线</p>
+<p>动线3是一条高风险高收益的动线。对于复活点1来说，走这条动线从南侧快速进入三层宿舍楼的二楼和三楼，小队可以从多个方向包抄攻楼；对于复活点2来说，走这条动线可以进入一楼的物资点搜刮，但这条动线对交战不利。</p>
+<h3 id="1-2-3塔科夫中短TTK-FPS游戏的设计体现"><a href="#1-2-3塔科夫中短TTK-FPS游戏的设计体现" class="headerlink" title="1.2.3塔科夫中短TTK FPS游戏的设计体现"></a>1.2.3塔科夫中短TTK FPS游戏的设计体现</h3><p>仍旧以宿舍楼为例,下图为三层宿舍楼和二层宿舍楼的俯视图。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%86%85%E9%83%A8.webp" srcset="/img/loading.gif" lazyload></p>
+<p>我们以三层宿舍楼二楼为主分析，这里是boss Reshala和他的小弟们的一个刷点，也是宿舍楼里交火最频繁的地方。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%B8%89%E5%B1%82%E5%AE%BF%E8%88%8D%E6%A5%BC%E4%BA%8C%E6%A5%BC%E5%B9%B3%E9%9D%A2%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们从三层楼二楼铁梯进入宿舍楼，这里是fps地图中一个经典的“葫芦口”，易守难攻。玩家有两条动线可以采纳，但是进楼的时候是必要暴露在多条枪线下。但是如果玩家能够成功突入到宿舍楼内的黄色L位，清完点后即可以占据这个进可攻退可守的位置。究其原因是因为图中贯穿宿舍楼南北两门的走廊太过狭长，最多只能容纳两个人并排前行，并且掩体非常少，可以从一道门看到另一道门。而且中间还连接着楼上楼下的楼梯口，导致即使是五人小队完全占领这条走廊也是不可能的。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%B8%89%E5%B1%82%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%8C%97%E4%BE%A7%E9%93%81%E6%A2%AF.png" srcset="/img/loading.gif" lazyload></p>
+<p>但是，宿舍楼的设计使得玩家小队并不需要完全控制住这条走廊。原因在于平面图中蓝色区域存在一个需要玩家跳跃通过的掩体。如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E4%B8%89%E5%B1%82%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%8D%97%E4%BE%A7%E5%85%A5%E5%8F%A3.png" srcset="/img/loading.gif" lazyload></p>
+<p>而由于逃离塔克夫中玩家糟糕的性能，防守方往往能够抓住玩家起跳时巨大timing。因此L位的玩家所需要的只需要守住楼道、南部铁梯方向来的玩家即可获取整个二楼的控制权，进而通过排点获得整个二楼的控制权，并掌握主动权：是前往三楼邪教房获取高级物资点，还是前往一楼清完剩下的杂兵，或是架住二层楼方向和老烂尾楼方向可能前来的玩家。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/L%E4%BD%8D.png" srcset="/img/loading.gif" lazyload></p>
+<p>同时，整栋宿舍楼设计了大量不同的房间，这些房间的门有些可以踹开，有些需要稀有钥匙，有些则需要跳过铁丝网进入。这些房间中也有很多任务点，通过这样的设计可以使得各个房间区分明显，玩家在多次进攻或防守宿舍楼时每次都会有全新的体验。此外，宿舍楼中掩体的风格化设计，如倒塌的桌子、电冰箱、床头柜等废土风格的设计，巧妙地将地图元素和FPS设计融合成了一体，设计水平十分之高超。</p>
+<h2 id="1-3-耐力与距离设置"><a href="#1-3-耐力与距离设置" class="headerlink" title="1.3 耐力与距离设置"></a>1.3 耐力与距离设置</h2><p>塔科夫中的人物有耐力条限制，耐力条会在冲刺时被消耗，并在行走时缓慢恢复。身上的负重、受伤情况均会影响耐力情况，同时也有增加耐力条上限的蓝针、曲马多等药剂。同时，塔科夫也存在局外RPG成长机制，耐力等级会随着人物累计跑的距离而增长，给予玩家更多的耐力上限，满级时共可以提供额外150%的耐力。</p>
+<p>地图中的很多距离设置是与耐力相关联的。例如在1.2.2中提到的动线1交汇处的交战区1，此处的开阔距离的直径范围大小刚好约等于满级耐力情况下人物跑完一管耐力的长度。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%8A%A8%E7%BA%BF.png" srcset="/img/loading.gif" lazyload></p>
+<p>由于塔科夫在远距离的TTK较长，所以人物在高速移动时是难以被快速击杀的。因此人物跑起来时往往是安全的。</p>
+<p>我们还可以举出很多类似的设计，例如人物在过河时，处于极度危险的情况。此处的地图设计使得人物可以刚好用完一管耐力跑过桥到达掩体附近。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E8%BF%87%E6%A1%A5.png" srcset="/img/loading.gif" lazyload></p>
+<p>耐力条的限制也反过来控制着玩家的心流体验。在携带必要装备的情况下，往往耐力条的回复速度远远慢于冲刺时消耗的速度。因此玩家会在耐力条的使用上反复抉择：这一段危险路段应该采取怎么样的姿态经过？这里用尽了耐力条是否能应对突然的袭击？是否需要在必要的时候扔掉背包轻装上阵？</p>
+<p>耐力条与地图设计的结合使得逃离塔克夫的心流体验非常集中。</p>
+<h2 id="2-地图设计思路总览"><a href="#2-地图设计思路总览" class="headerlink" title="2. 地图设计思路总览"></a>2. 地图设计思路总览</h2><p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B3%E5%9C%B0%E5%9B%BE%E5%88%92%E5%88%86.png" srcset="/img/loading.gif" lazyload></p>
+<p>纵观整个地图，根据出生点（黄色向下箭头）的分布，我们大致可以将地图分为三个区块，我将他们分别在图中用两个绿色方框和红色方框标出。出生在一侧方框的人其撤离点必然存在于另一侧方框内（除了少数条件撤离点，如黑车）。这一核心设计使得地图中玩家的动线天然地形成了对冲：</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B3%E5%9C%B0%E5%9B%BE%E5%AF%B9%E5%86%B2%E7%A4%BA%E6%84%8F%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<p>而我们不难发现，图中红色方框区域正是地图交火最激烈的地区，同时也是高级物资点、boss刷新的区域。宿舍楼概率刷Reshala男团且有邪教房，同时还存在着一个概率撤离点黑车；新烂尾楼俯瞰整个地图上半区，是上半区的制高点，且附近概率刷三狗，情报楼里概率刷情报。</p>
+<p>因此，红色方框地带就是策划在设计地图时预先划分好的“交火地带”，且此处的出生点也异常的少，防止出生在此处的玩家遭到两侧的围攻。</p>
+<p>但是，这不意味着绿色方框内就不存在高级物资刷点，右侧红厂房里的保险箱，左侧的显卡楼和信号塔里，都有着不错的物资刷点。这些设计是用来干什么的呢？地图策划不是想要玩家在动线冲突区域进行交火嘛？</p>
+<p>这里体现了逃离塔科夫地图设计的第二个理念：非零和博弈。</p>
+<p>是的，逃离塔科夫的核心强调撤离而非战斗，每个玩家在进入战局时都会携带一定量的装备，这些装备即是他们带入局的筹码，但是，他们也可以选择不将筹码放在天平上，选择一条保守的路线前进，例如，贴着墙边走，或潜伏在地图中等战局进行一定时间后再做选择。这种行动模式满足了非“杀手型玩家”在逃离塔科夫中的游戏体验。实际上，这样的玩家在塔科夫中数量可观，笔者在和朋友早期游玩塔科夫的时候，都是选择开局趴20分钟再前往任务地点做任务的。</p>
+<p>因此，地图中绿色区域的“次高级物资刷点”正是给那些不想开局直奔着高级物资点的玩家的，让他们也能在地图中搜刮到一定量的物资，同时这些物资点中也会有极小概率出现极高级物资。</p>
+<p>最能体现出这种非零和博弈思维的地图设计，是散落在海关各处的“彩蛋点”，即下图中的五角星标：</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E6%B5%B7%E5%85%B33d.webp" srcset="/img/loading.gif" lazyload></p>
+<p>隐蔽的彩蛋点：</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%BD%A9%E8%9B%8B%E7%82%B9.png" srcset="/img/loading.gif" lazyload></p>
+<p>这些彩蛋点连结成了一条另类的动线：彩蛋点动线。这是一条笔者在前期游玩塔科夫的时候游玩Scan模式时经常采取的动线，这样的动线能较大概率避开交火地带，仅靠彩蛋点也能够获得许多高级物资。</p>
+<p><img src="https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/EFTAnalysis/%E5%BD%A9%E8%9B%8B%E7%82%B9%E5%8A%A8%E7%BA%BF.png" srcset="/img/loading.gif" lazyload></p>
+<p>这些彩蛋点的设计意义正是给那些不想参与高烈度战斗玩家另一条选择：小本经营，细水长流。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/EFT/" class="print-no-link">#EFT</a>
+      
+        <a href="/tags/Game-Design/" class="print-no-link">#Game Design</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>海关地图设计拆解</div>
+      <div>http://example.com/2026/01/11/EFT/EFTAnalysis/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>January 11, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/01/11/EFT/EFTDesign/" title="类塔科夫地图设计">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">类塔科夫地图设计</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/11/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

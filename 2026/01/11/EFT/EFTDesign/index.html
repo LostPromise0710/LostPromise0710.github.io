@@ -1,0 +1,812 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="类塔科夫地图设计  比例尺1:2000  简要介绍：地图左上角是学校校区，右上角是一个高铁站，下面的中间部分是一个水电站，其余部分则是山坡、田地和树林。  图例：Q 红色圆圈：出生点 蓝色圆圈：撤离点 绿色地块：树木、灌木等遮挡视线的植被 蓝色地块：水域 ①：实验楼 医疗物资、实验物资，爆率低 ②：报告厅 生活物资，爆率低 ③：行政楼 稀有物资、情报类物资，爆率中 ④：1号教学楼 生活物资、饮食，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类塔科夫地图设计">
+<meta property="og:url" content="http://example.com/2026/01/11/EFT/EFTDesign/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="类塔科夫地图设计  比例尺1:2000  简要介绍：地图左上角是学校校区，右上角是一个高铁站，下面的中间部分是一个水电站，其余部分则是山坡、田地和树林。  图例：Q 红色圆圈：出生点 蓝色圆圈：撤离点 绿色地块：树木、灌木等遮挡视线的植被 蓝色地块：水域 ①：实验楼 医疗物资、实验物资，爆率低 ②：报告厅 生活物资，爆率低 ③：行政楼 稀有物资、情报类物资，爆率中 ④：1号教学楼 生活物资、饮食，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BE.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BE%20%E5%8A%A8%E7%BA%BF.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BEAI%E5%88%86%E5%B8%83.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AE%9D%E4%B8%AD%E5%9C%B0%E5%9B%BE.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BE.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BEAI%E5%88%86%E5%B8%83.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%87%BA%E7%94%9F%E7%82%B9%20%E5%B7%A6%E4%B8%8A%E8%A7%92%E5%8C%BA%E5%9F%9F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%87%BA%E7%94%9F%E7%82%B9%20%E5%B7%A6%E4%B8%8B%E8%A7%92%E5%8C%BA%E5%9F%9F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%87%BA%E7%94%9F%E7%82%B9%20%E5%8F%B3%E4%B8%8A%E8%A7%92%E5%8C%BA%E5%9F%9F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%87%BA%E7%94%9F%E7%82%B9%20%E5%8F%B3%E4%B8%8B%E8%A7%92%E5%8C%BA%E5%9F%9F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BE%20%E5%8A%A8%E7%BA%BF.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%8C%BA%E5%9F%9F%E7%89%B9%E5%8C%96%20%E5%B7%A6%E4%B8%8A%E8%A7%92%E5%8C%BA%E5%9F%9F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%8C%BA%E5%9F%9F%E7%89%B9%E5%8C%96%20%E5%B7%A6%E4%B8%8B%E8%A7%92%E5%8C%BA%E5%9F%9F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%8C%BA%E5%9F%9F%E7%89%B9%E5%8C%96%20%E5%8F%B3%E4%B8%8A%E8%A7%92%E5%8C%BA%E5%9F%9F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%87%BA%E7%94%9F%E7%82%B9%20%E5%8F%B3%E4%B8%8B%E8%A7%92%E5%8C%BA%E5%9F%9F.png">
+<meta property="article:published_time" content="2026-01-11T09:35:24.000Z">
+<meta property="article:modified_time" content="2026-01-16T06:39:22.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="EFT">
+<meta property="article:tag" content="Game Design">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BE.png">
+  
+  
+  
+  <title>类塔科夫地图设计 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Enthurious</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://raw.githubusercontent.com/LostPromise0710/PictureStorage/imgs/img/Morfonica/HiromachiNanami2178.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="类塔科夫地图设计"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-11 17:35" pubdate>
+          January 11, 2026 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.4k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          37 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">类塔科夫地图设计</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="类塔科夫地图设计"><a href="#类塔科夫地图设计" class="headerlink" title="类塔科夫地图设计"></a>类塔科夫地图设计</h1><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li><p>比例尺1:2000</p>
+</li>
+<li><p>简要介绍：地图左上角是学校校区，右上角是一个高铁站，下面的中间部分是一个水电站，其余部分则是山坡、田地和树林。</p>
+</li>
+<li><p>图例：Q</p>
+<p>红色圆圈：出生点</p>
+<p>蓝色圆圈：撤离点</p>
+<p>绿色地块：树木、灌木等遮挡视线的植被</p>
+<p>蓝色地块：水域</p>
+<p>①：实验楼</p>
+<p>医疗物资、实验物资，爆率低</p>
+<p>②：报告厅</p>
+<p>生活物资，爆率低</p>
+<p>③：行政楼</p>
+<p>稀有物资、情报类物资，爆率中</p>
+<p>④：1号教学楼</p>
+<p>生活物资、饮食，爆率中</p>
+<p>⑤：2号教学楼</p>
+<p>生活物资、饮食，爆率中，存在保险箱</p>
+<p>⑥：3号教学楼</p>
+<p>生活物资、饮食，爆率中，存在保险箱</p>
+<p>⑦：食堂、厨房</p>
+<p>饮食，稀有物资，爆率中；厨房爆率高</p>
+<p>⑧：学生宿舍</p>
+<p>高级物资刷新点，爆率高</p>
+<p>⑨：体育馆</p>
+<p>高级物资刷新点，爆率高</p>
+</li>
+<li><p>动线</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BE%20%E5%8A%A8%E7%BA%BF.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ol>
+<p>如图标出的四条动线：</p>
+<p>最上面一条沿着桥直通高级物资刷新点学生宿舍和体育馆，烈度高</p>
+<p>第二条贯穿整个学校主干，一路上有多处房屋，可以进去搜刮，但爆率一般，烈度中</p>
+<p>第三条是贯穿整个地图的马路，这条线上物资点不多且危险，但是可以快速移动，烈度中</p>
+<p>第四条是穿过下方的山地前往下方的水电站，里面也有高价值物资刷新点，这个水电站对标的是海关地图中的宿舍楼，布局也参考了海关的布局，烈度高</p>
+<p>4.AI分布</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BEAI%E5%88%86%E5%B8%83.png" srcset="/img/loading.gif" lazyload></p>
+<p>如图，高级资源点⑧⑨和水电站会刷新大量AI，其中水电站会刷新Boss；</p>
+<p>主干道上会概率刷新巡逻AI；</p>
+<p>学校的左侧楼房内会刷新少量AI，学校内部的主干道中会刷新一定巡逻AI；</p>
+<p>右侧高铁站内部会刷新一定AI；</p>
+<p>AI的刷新逻辑也是参考海关地图的ai分布，高级资源点会刷新大量AI和boss，主干道和必经之路上会刷新巡逻AI，另外还有一些狙击AI点位待商榷。</p>
+<p>5.设计思路：</p>
+<p>以海关地图模板为主题设计思路的地图设计。</p>
+<p>地图下半部分较为空旷，资源点集中在水电站，其余部分是田地和山坡树林，对应海关的上半部分。并且可以注意到地图下半部分有两个高坡，这两个高坡可以俯瞰学校和高铁站，拿到一些信息。但是高坡并不能直接看到水电站里，因为水电站周围被树木遮挡了视线，这一点也是参考了宿舍楼周围被树木覆盖的设计。</p>
+<p>地图上半部分则是集中的校区和高铁站，高级物资主要分布在⑧和⑨建筑中间，位于地图的正中，同时也是动线交汇处，是设计出来的高风险争夺点；</p>
+<p>校区的左半部分的物资点分布多而不精，需要搜刮大量时间；高铁站的物资点分布集中，但需要高级钥匙，并且搜刮的很快；这两片地区是为了让玩家快速搜刮完有一个保底然后鼓励他们前往高级资源点打架。</p>
+<p>在设计中⑦餐厅和厨房可以走到房顶观察整个校区的视野，这块地方对应海关的烂尾楼，是兵家必争之地。</p>
+<p>6.地形参考</p>
+<p>由于逃离塔科夫的地图设计均有原型，因此我在设计地图的时候也是参照了我的高中学校地形进行设计，下面是我们学校的俯瞰图，结合俯瞰图可以对地图有一个更深的理解：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AE%9D%E4%B8%AD%E5%9C%B0%E5%9B%BE.jpg" srcset="/img/loading.gif" lazyload></p>
+<h2 id="1-期望玩家行为"><a href="#1-期望玩家行为" class="headerlink" title="1.期望玩家行为"></a>1.期望玩家行为</h2><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BEAI%E5%88%86%E5%B8%83.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="1-1-快速识别"><a href="#1-1-快速识别" class="headerlink" title="1.1 快速识别"></a>1.1 快速识别</h3><p>首先根据周围的<strong>地标</strong>性建筑<strong>快速识别</strong>出自身处在地图的哪个区域，从而根据出生点快速做出这次战局的<strong>动线规划</strong>。</p>
+<p>在地图左侧上半部分复活会清晰地看见<strong>学校的建筑</strong>、<strong>湖泊</strong></p>
+<p>在地图的左下部分复活会清晰的看见左下的<strong>缓坡</strong>和公路</p>
+<p>在地图右上侧复活会定位到明显的<strong>高铁站</strong></p>
+<p>在地图右下侧复活地标性建筑较少，但是可以用<strong>排除法</strong>推断出自己处于地图右下侧</p>
+<h3 id="1-2-玩家开局阶段的期望行为"><a href="#1-2-玩家开局阶段的期望行为" class="headerlink" title="1.2 玩家开局阶段的期望行为"></a>1.2 玩家开局阶段的期望行为</h3><h4 id="1-2-1-左上角区域"><a href="#1-2-1-左上角区域" class="headerlink" title="1.2.1 左上角区域"></a>1.2.1 左上角区域</h4><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%87%BA%E7%94%9F%E7%82%B9%20%E5%B7%A6%E4%B8%8A%E8%A7%92%E5%8C%BA%E5%9F%9F.png" srcset="/img/loading.gif" lazyload></p>
+<p>左上区域复活的玩家直接出生在校区内部，复活点设计的相对比较<strong>密集</strong>。由于教学楼对<strong>视线的遮挡</strong>，很难迅速判断周边的情况是否安全。理想情况下一次战局中左上角的9个复活点应该会有至少3个复活点复活玩家（复活点距离相对较远）。三个队伍在复活之后进入战局之后第一件事应该是<strong>确认周围情况是否安全</strong>，这一点参考逃离塔科夫中<strong>实验室</strong>地图中复活点之间相互<strong>架点</strong>。这是我在设计地图的时候有意把左上角复活点设计的这么<strong>密集</strong>的原因。同时左上角区域教室内部和外部均有少量AI分布，这就意味着玩家直接必定能听到对面的信息，因此开局复活在这边几乎必有一战。</p>
+<p>当然，如果你出生在左上角并不想战斗，可以通过地图<strong>北侧的树林小道</strong>或直接前往地图<strong>下半区</strong>前往撤离点，这样的风险较小，但资源点也相对较少。</p>
+<h4 id="1-2-2-左下角区域"><a href="#1-2-2-左下角区域" class="headerlink" title="1.2.2 左下角区域"></a>1.2.2 左下角区域</h4><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%87%BA%E7%94%9F%E7%82%B9%20%E5%B7%A6%E4%B8%8B%E8%A7%92%E5%8C%BA%E5%9F%9F.png" srcset="/img/loading.gif" lazyload></p>
+<p>左下角一共有六个复活点，理想状态下6个复活点会复活2队玩家。左边田地里四个复活点任选一个，右边缓坡上两个复活点任选一个（复活点之间不相邻）。</p>
+<p>缓坡上的复活点是前往<strong>水电站第一身位</strong>，可以直接冲向水电站搜取物资，也可以占领缓坡拿取学校和水电站方向两边的信息；</p>
+<p>田地里的复活点出生在地图边缘，相对较为<strong>安全</strong>，但是距离高级物资点也很远。玩家的选择可以是<strong>攻占缓坡</strong>，拿取制高点后再拿取学校和水电站的信息；或者是直接<strong>前往学校区域</strong>，这个时候学校一般已经打过一仗了，二次加入战场的小队会成为战场的<strong>不确定因素</strong>。</p>
+<h4 id="1-2-3-右上角区域"><a href="#1-2-3-右上角区域" class="headerlink" title="1.2.3 右上角区域"></a>1.2.3 右上角区域</h4><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%87%BA%E7%94%9F%E7%82%B9%20%E5%8F%B3%E4%B8%8A%E8%A7%92%E5%8C%BA%E5%9F%9F.png" srcset="/img/loading.gif" lazyload></p>
+<p>右上角一共有7个复活点，理想状态下会复活2~3队玩家</p>
+<p>复活在高铁站周围的玩家的期望行为是直接<strong>切入高铁站进行作战</strong>，由于已知的复活点是上下对称的，所以高铁站里的地图设计思路可以参考CS2地图中的小图设计，例如Dust2、inferno等经典井字设计，形成上下对抗。</p>
+<p>剩下两个复活在学校一侧的复活点选择很多</p>
+<p>首先是北侧地图边缘的复活点，可以选择<strong>加入右侧高铁站的争夺</strong>，也可以<strong>直奔9号体育馆</strong>搜刮高级资源，这是体育馆唯一的第一身位。</p>
+<p>而出生在地图中间十字路口的复活点选择就非常多了，因为这个地方地处地图的<strong>正中心</strong>，所以可以<strong>自由</strong>地选择前往的地区。但是同时这个十字路口十分<strong>显眼</strong>，很容易被地图南侧两个山坡上的人观察到，所以需要尽快决策做出行动。</p>
+<h4 id="1-2-4-右下角区域"><a href="#1-2-4-右下角区域" class="headerlink" title="1.2.4 右下角区域"></a>1.2.4 右下角区域</h4><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%87%BA%E7%94%9F%E7%82%B9%20%E5%8F%B3%E4%B8%8B%E8%A7%92%E5%8C%BA%E5%9F%9F.png" srcset="/img/loading.gif" lazyload></p>
+<p>右下角一共有5个复活点，理想状态下会复活2队玩家，这个地方的复活点属于比较偏远地带，主要有两个选择，一是<strong>前往水电站</strong>（其中有一个是水电站的二号身位），二是<strong>往北侧高铁站前进</strong>。作为一定的补偿，这片地区设计的地势比较高，可以<strong>俯瞰整张地图</strong>，但由于比较偏僻，还是不如其他地区的复活点。唯一值得争抢的资源点大概就是水电站了。</p>
+<h3 id="1-3-玩家在一整场战局中的期望表现"><a href="#1-3-玩家在一整场战局中的期望表现" class="headerlink" title="1.3 玩家在一整场战局中的期望表现"></a>1.3 玩家在一整场战局中的期望表现</h3><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%AD%A6%E6%A0%A1%E5%9C%B0%E5%9B%BE%20%E5%8A%A8%E7%BA%BF.png" srcset="/img/loading.gif" lazyload></p>
+<p>根据不同区域和不同玩家风格，给出分类讨论。</p>
+<h4 id="1-3-1-左上角区域"><a href="#1-3-1-左上角区域" class="headerlink" title="1.3.1 左上角区域"></a>1.3.1 左上角区域</h4><p>激进：开局<strong>肃清左上角地区</strong>，搜索整个校区，然后往8号楼学生宿舍、9号楼体育馆<strong>高级资源点</strong>前进，在那边与<strong>玩家和boss</strong>进行第二场战斗，战斗搜索完毕后接着前往右上角高铁站内的撤离点<strong>撤离</strong>。</p>
+<p>正常：开局确认左上角地区<strong>安全</strong>，根据情况搜索<strong>部分</strong>楼层的资源点，然后沿着主路前进，前往7号楼餐厅<strong>搜索</strong>，搜索完毕后根据情况选择是否要<strong>前往水电站</strong>或是直接<strong>撤离</strong>。</p>
+<p>保守：开局直接前往地图<strong>北侧树林</strong>或<strong>南侧田地</strong>，一路<strong>沿着地图边缘前进</strong>直到对应的撤离点。（但是中途仍然会不可避免地遇到高级资源点）</p>
+<h4 id="1-3-2-左下角区域"><a href="#1-3-2-左下角区域" class="headerlink" title="1.3.2 左下角区域"></a>1.3.2 左下角区域</h4><p>激进：开局直接<strong>奔向校区</strong>，然后<strong>肃清整个校区</strong>，接着往8号楼学生宿舍、9号楼体育馆<strong>高级资源点</strong>前进，在那边与<strong>玩家和boss</strong>进行第二场战斗，战斗搜索完毕后接着前往右上角高铁站内的撤离点<strong>撤离</strong>。</p>
+<p>正常：开局往缓坡方向前进，<strong>占领缓坡</strong>，根据学校方向和水电站方向的枪声信息<strong>做出判断</strong>，然后前往对应地点，最后撤离。</p>
+<p>保守：直接<strong>沿着地图南侧的海平面</strong>前进至撤离点就行。</p>
+<h4 id="1-3-3-右上角区域"><a href="#1-3-3-右上角区域" class="headerlink" title="1.3.3 右上角区域"></a>1.3.3 右上角区域</h4><p>激进： 开局直接<strong>肃清右上角高铁站</strong>，搜索完毕后前往8号楼学生宿舍、9号楼体育馆<strong>高级资源点</strong>，在那边与<strong>玩家和boss</strong>进行第二场战斗，战斗搜索完毕后接着<strong>前往左上角校区</strong>，搜索并撤离。</p>
+<p>正常：进入高铁站拿对面队伍的信息，<strong>选择打或者跑</strong>。随后的下一个目标点比较<strong>灵活</strong>，可以选择去校区，也可以选择去水电站，然后去对应撤离点撤离即可。</p>
+<p>保守：<strong>沿着北侧树林</strong>直接奔向撤离点。</p>
+<h4 id="1-3-4-右下角区域"><a href="#1-3-4-右下角区域" class="headerlink" title="1.3.4 右下角区域"></a>1.3.4 右下角区域</h4><p>激进：直接<strong>冲向水电站</strong>，<strong>肃清水电站</strong>之后，从南侧正门进入学校前往8号楼学生宿舍、9号楼体育馆<strong>高级资源点</strong>，在那边与<strong>玩家和boss</strong>进行第二场战斗，最后往左上角校区前进，搜索并撤离。</p>
+<p>正常：利用<strong>全图最高点优势俯瞰全图</strong>拿信息，<strong>带狙</strong>看能不能试探性地打点状态，最后根据收集到的信息再做选择。可以前往高铁站，也可以前往水电站。</p>
+<p>保守：直接<strong>沿着地图南侧的海平面</strong>前进至撤离点就行。</p>
+<h2 id="2-设计关卡每个阶段的思路"><a href="#2-设计关卡每个阶段的思路" class="headerlink" title="2.设计关卡每个阶段的思路"></a>2.设计关卡每个阶段的思路</h2><h3 id="2-1-选材标准"><a href="#2-1-选材标准" class="headerlink" title="2.1 选材标准"></a>2.1 选材标准</h3><p>我在设计关卡时第一步是明确选材标准。</p>
+<p>要做到设计类逃离塔科夫的地图，其选材必须接近<strong>真实</strong>。因为首先逃离塔科夫的几张地图也可以在现实生活中找到原型，如立交桥、海岸线等。并且逃离塔科夫的核心卖点就是拟真、硬核等特色，因此<strong>选择真实地图</strong>去设计加工是很好的选择。</p>
+<p>其次设计一张地图时，我需要做的是把我这个人放进我即将设计好的地图中去感受。因此需要我对地图的各个细节非常熟悉，有一个<strong>宏观把握</strong>度。所以我会选择现实生活中我曾经<strong>熟悉的地区</strong>的地图。</p>
+<p>最后就是地图的<strong>设计感</strong>。我不可能直接把一个规则重复的小区设计图拿过来做地图设计，在规整的地图基础上很难加工出有设计感、有趣的地图。所以，我会尽量去挑选那些在生活中给我<strong>留下深刻印象的地区、建筑</strong>等，以这些作为选材。</p>
+<p>综上，我选取了我高中时期的学校区域作为地图的大部分蓝图，然后以此为基础，往外扩建了一部份区域作为草稿。</p>
+<h3 id="2-2-划分区域——参考“海关”的地图设计"><a href="#2-2-划分区域——参考“海关”的地图设计" class="headerlink" title="2.2 划分区域——参考“海关”的地图设计"></a>2.2 划分区域——参考“海关”的地图设计</h3><p>在确立了地图蓝本之后，我首先需要做的是参考已经成熟的“海关地图”的设计来对已有的蓝本进行加工。在分析海关地图时，那条<strong>横跨地图两端的公路</strong>给我留下了深刻的印象。这条公路给玩家一个清晰的<strong>参照物</strong>，并且将地图<strong>划分</strong>为上下两个半区。因此，我也参照这个标准，给我的地图中设计了<strong>两条横纵的马路，将地图清晰地划分为四个区域</strong>。有了这两条马路之后，地图设计思路便很快明朗起来。我只需要对这四个区域分别进行主题性设计，便可以达到不错的目的。</p>
+<h3 id="2-3-区域特化"><a href="#2-3-区域特化" class="headerlink" title="2.3 区域特化"></a>2.3 区域特化</h3><p>公路划分时，我有意识地将四块区域不等分地划分，以此来区别不同区域，让地图变得更有意思。</p>
+<h4 id="2-3-1-左上角区域"><a href="#2-3-1-左上角区域" class="headerlink" title="2.3.1 左上角区域"></a>2.3.1 左上角区域</h4><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%8C%BA%E5%9F%9F%E7%89%B9%E5%8C%96%20%E5%B7%A6%E4%B8%8A%E8%A7%92%E5%8C%BA%E5%9F%9F.png" srcset="/img/loading.gif" lazyload></p>
+<p>这一块是最大的一片区域，我几乎照搬了我母校的地图设计。因为在我的认知中，这一片区域是非常有设计感的。楼层的高低、主干道与支道的交错，池塘与教学楼的交织，使得这片区域的看上去非常不错。并且，从FPS射击游戏的角度来看，校区的地图设计也有不错的对冲性，让左侧与右侧的玩家的<strong>动线必定交织</strong>。同时，我<strong>更改了一些局部细节</strong>，加入了一些树林小道，给予玩家更多的选择。</p>
+<p>更重要的是，这一片地区是我最熟悉的地方，因此以此为蓝图，我会有一个很强烈的<strong>亲身把握</strong>。</p>
+<h4 id="2-3-2-左下角区域"><a href="#2-3-2-左下角区域" class="headerlink" title="2.3.2 左下角区域"></a>2.3.2 左下角区域</h4><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%8C%BA%E5%9F%9F%E7%89%B9%E5%8C%96%20%E5%B7%A6%E4%B8%8B%E8%A7%92%E5%8C%BA%E5%9F%9F.png" srcset="/img/loading.gif" lazyload></p>
+<p>这一片区域我最先加入的是<strong>水电站</strong>，这个水电站位于整个下班去的中心点，其所起到的作用正如海关地图中宿舍楼一样，为整个下半区提供<strong>高级资源点和战场</strong>。</p>
+<p>在设计完水电站之后，我给水电站周围添加了大量的树木掩体，使得这个地区不至于成为<strong>众矢之的</strong>，让玩家在里面打架打得安全一点。</p>
+<p>接下来我就考虑如何填充左下角这片区域。</p>
+<p>经过考虑之后我最后的选择是将这两篇地区分为两半，一半用中华文化中比较具有特色的水稻田填充，另一半则是一个缓坡。水稻田在地图设计中给玩家以体验<strong>中国平原地区特</strong>色的机会，而缓坡则具有较强的战术意义。这段缓坡的设计可以参考逃离塔科夫“海关”地图中的<strong>新烂尾楼</strong>。占据这块地可以站中间架两边。</p>
+<h4 id="2-3-3-右上角区域"><a href="#2-3-3-右上角区域" class="headerlink" title="2.3.3 右上角区域"></a>2.3.3 右上角区域</h4><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%8C%BA%E5%9F%9F%E7%89%B9%E5%8C%96%20%E5%8F%B3%E4%B8%8A%E8%A7%92%E5%8C%BA%E5%9F%9F.png" srcset="/img/loading.gif" lazyload></p>
+<p>右上角区域我的设计思路也是我家乡<strong>真实</strong>存在的建筑：高铁站。但是它实际上不是长这样。我在做设计的时候参考了逃离塔科夫中“立交桥”的设计，做了一个全封闭的建筑，玩家需要进入到建筑内部进行战斗。在做内部设计的时候，我打算参考了CS的经典地图Dust2、Inferno等进行掩体布置和动线设计，把里面做成一个类似田字的竞技场。</p>
+<h4 id="2-3-4-右下角区域"><a href="#2-3-4-右下角区域" class="headerlink" title="2.3.4 右下角区域"></a>2.3.4 右下角区域</h4><p><img src="https://cdn.jsdelivr.net/gh/LostPromise0710/PictureStorage@img/img/EFTDesignMap/%E5%87%BA%E7%94%9F%E7%82%B9%20%E5%8F%B3%E4%B8%8B%E8%A7%92%E5%8C%BA%E5%9F%9F.png" srcset="/img/loading.gif" lazyload></p>
+<p>这片区域<strong>范围较小</strong>，能承载的功能不是很多，因此我想到了逃离塔科夫中“灯塔”中的后山，“储备站”中的大圆球、以及“森林”中的狙击山。把这片地区做成一个比较高的山坡，这样这片地区就是一个能俯瞰全图的制高点，玩家复活在这里可以打狙，也可以收集信息来进行下一步行动。</p>
+<h3 id="2-4-AI填充"><a href="#2-4-AI填充" class="headerlink" title="2.4 AI填充"></a>2.4 AI填充</h3><p>确定了不同区域的主题设计，接下来就是<strong>根据这片区域的主题</strong>填充进不同数量以及等级的AI，从而使得这篇区域的作用性能够得到<strong>正确</strong>的发挥。</p>
+<p>比如左上角<strong>复活点很多，地势复杂</strong>，就需要填充足够数量的AI，使得玩家被迫与AI进行交战，从而暴露出更多的信息，进而使得玩家直接进行交火。而不是最后玩家直接互相架点，导致游戏过于无趣。</p>
+<p>而针对左下角和右下角这种<strong>鸟不拉屎</strong>的地方，就<strong>不要加入AI</strong>，这样也比较符合高风险高收益的设计理念。</p>
+<p>而类似于水电站、体育场、宿舍楼这种<strong>高级资源点</strong>，就需要在其中<strong>添加Boss</strong>来增加玩家的风险，当然Boss身上也会有很多好东西。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/EFT/" class="print-no-link">#EFT</a>
+      
+        <a href="/tags/Game-Design/" class="print-no-link">#Game Design</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>类塔科夫地图设计</div>
+      <div>http://example.com/2026/01/11/EFT/EFTDesign/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>January 11, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/01/11/EFT/EFTCore/" title="搜打撤的核心">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">搜打撤的核心</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/11/EFT/EFTAnalysis/" title="海关地图设计拆解">
+                        <span class="hidden-mobile">海关地图设计拆解</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
